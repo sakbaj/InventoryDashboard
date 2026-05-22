@@ -1,17 +1,80 @@
-# React + Vite
+# Inventory Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Inventory Management Dashboard built with React, Vite, and an Express backend. This application allows users to manage inventory, track orders, and handle customer data. 
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dashboard:** Overview of business statistics, including total revenue, active orders, low stock items, and revenue charts.
+- **Inventory Management:** View, search, filter, and add new inventory items. Tracks stock levels and pricing.
+- **Orders:** View and search through customer orders and their statuses (e.g., Delivered, Processing, Pending, Cancelled).
+- **Customers:** Manage customer information, contact details, and locations.
+- **REST API Backend:** Express server using `lowdb` for lightweight, JSON-based local data storage.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- **React (v19)** - UI Library
+- **Vite** - Build Tool & Dev Server
+- **Redux Toolkit** - State Management
+- **React Router** - Navigation
+- **Tailwind CSS** - Utility-first CSS framework for styling
+- **Recharts** - Charting library for dashboard analytics
+- **Lucide React** - Iconography
 
-## Expanding the ESLint configuration
+### Backend
+- **Express.js** - Web framework for Node.js
+- **LowDB** - Lightweight JSON database
+- **CORS** - Cross-Origin Resource Sharing middleware
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# InventoryDashboard" 
+## Getting Started
+
+### Prerequisites
+- Node.js installed on your machine.
+
+### Installation
+
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   cd inventory-dashboard
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+To run both the Vite frontend and the Express backend concurrently:
+
+```bash
+npm run dev
+```
+
+- The **Frontend** will be available at `http://localhost:5173` (or the port Vite specifies).
+- The **Backend API** will run at `http://localhost:3001`.
+
+### Other Scripts
+
+- `npm run server`: Starts only the Express backend server using nodemon.
+- `npm run build`: Builds the React frontend for production.
+- `npm run preview`: Serves the production build locally.
+- `npm run lint`: Runs ESLint to check for code quality.
+
+## Project Structure
+
+```
+inventory-dashboard/
+├── server/
+│   └── server.js        # Express backend server and API routes
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── features/        # Redux slices and feature-specific logic
+│   ├── hooks/           # Custom React hooks
+│   ├── pages/           # Main application pages (Dashboard, Inventory, Orders, Customers)
+│   ├── App.jsx          # Root component
+│   └── main.jsx         # React entry point
+├── package.json         # Project metadata and scripts
+├── tailwind.config.js   # Tailwind CSS configuration
+└── vite.config.js       # Vite configuration
+```
